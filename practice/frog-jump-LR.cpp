@@ -67,7 +67,7 @@ int getMinSteps(int start, int end, int l, int r) {
 		pair<int, int> f = q.front();
 		q.pop();
         
-        // cout << "pop: " << f.first << " in " << f.second << " steps\n"; 
+        cout << "pop: " << f.first << " in " << f.second << " steps\n"; 
 
 		if (f.first == end) {
 			return f.second;

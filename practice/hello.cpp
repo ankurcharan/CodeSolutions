@@ -14,16 +14,60 @@ void print(vector<int>& a, string name) {
     cout << "\n";
 }
 
+
+
+
+
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int maximumProfit(vector<int>& prices) {
+    int n = prices.size();
+    int lMin = prices[0];  // Local Minima
+    int lMax = prices[0];  // Local Maxima
+    int res = 0;
+  
+    int i = 0;
+    while (i < n - 1) {
+      
+        // Find local minima 
+        while (i < n - 1 && prices[i] >= prices[i + 1]) { i++; }
+
+        cout << "minIdx: " << i << endl;
+
+        lMin = prices[i];
+       
+        // Local Maxima
+        while (i < n - 1 && prices[i] <= prices[i + 1]) { i++; }
+        lMax = prices[i];
+      
+        // Add current profit 
+        res = res + (lMax - lMin);
+    }
+  
+    return res;
+}
+
 int main()
 {
-    vector<int> a = { 1, 2, 3, 4 };
-    
-    print(a, "a");
-    a.erase(find(a.begin(), a.end(), 2));
-    print(a, "a");
+    vector<int> prices = {100, 90, 80, 70, 60, 50, 40};
+    cout << maximumProfit(prices);
 
-    char x = 'A';
-    cout << boolalpha << isdigit(x) << "dsds\n";
+
+
+
+
+
+
+    // vector<int> a = { 1, 2, 3, 4 };
+    
+    // print(a, "a");
+    // a.erase(find(a.begin(), a.end(), 2));
+    // print(a, "a");
+
+    // char x = 'A';
+    // cout << boolalpha << isdigit(x) << "dsds\n";
 
 
 

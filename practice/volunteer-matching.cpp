@@ -137,6 +137,30 @@ bool bpm(unordered_map<int, unordered_set<int>>& g, int s, int n, vector<bool>& 
 	return false;
 }
 
+bool bpm2(unordered_map<int, unordered_set<int>>& g, int v, vector<bool>& visit, vector<int>& assign) {
+    
+    cout << "volunt: " << v << "\n";
+    
+    // for every question for this volunteer
+    for (int q: g[v]) {
+        
+        // if it is not visited, try to assign
+        if (visit[q] == false) {
+            
+            visit[q] = true;
+            
+            if (assign[q] == -1 || bpm2(g, assign[q], visit, assign)) {
+                
+                cout << "assign: "  << q << " to: " << v << "\n";
+                assign[q] = v;
+                return true;
+            }
+        }
+    }
+    
+    return false;
+}
+
 
 int findMaxMatch(unordered_map<int, vector<string>>& questions, int numQuestions,
 	unordered_map<int, vector<string>>& volunteers, int numVolunteer) {
@@ -144,7 +168,8 @@ int findMaxMatch(unordered_map<int, vector<string>>& questions, int numQuestions
     unordered_map<int, unordered_set<int>> g = createGraph(questions, volunteers);
 
 	// // print graph
-	// printGraph(g);
+	printGraph(g);
+    cout << "\n";
     
     // questions assigned to which volunteer
 	vector<int> assign(numQuestions + 1, -1);
@@ -154,10 +179,11 @@ int findMaxMatch(unordered_map<int, vector<string>>& questions, int numQuestions
 
 		vector<bool> visit(numQuestions + 1, false);
 
-		if (bpm(g, i, numQuestions, visit, assign))
+		if (bpm2(g, i, visit, assign))                       // 2nd attempt
+        // if (bpm(g, i, numQuestions, visit, assign))      // 1st one
 			ans++;
 
-        // cout << "\nend\n\n\n";
+        cout << "\n";
     }
 
     // cout << "assignments: \n";

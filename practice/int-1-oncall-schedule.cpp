@@ -12,7 +12,9 @@
 
 /*
 
-We are given on-call rotation schedule for multiple people by: their name, start time and end time of the rotation:
+We are given on-call rotation schedule for multiple people by: 
+their name, start time and end time of the rotation:
+
 Abby 1 10
 Ben 5 7
 Carla 6 12
@@ -45,7 +47,8 @@ Ben 5 7
 Carla 6 12
 David 15 17
 
-Your goal is to return rotation table without overlapping periods representing who is on call during that time. Return "Start time", "End time" and list of on-call people:
+Your goal is to return rotation table without overlapping periods representing 
+who is on call during that time. Return "Start time", "End time" and list of on-call people:
 
 1 5 Abby
 5 6 Abby, Ben
@@ -55,10 +58,10 @@ Your goal is to return rotation table without overlapping periods representing w
 15 17 David
 
 
-	|------Abby------|
-					|----Carla---|
-			|--Ben--|              |-David-|
---1---5---6---7---10---12---15-------17--
+  |------Abby------|
+          |----Carla---|
+      |--Ben--|             |-David-|
+--1---5---6---7---10---12---15------17--
 
 // [(1, true, Abby), (5, true, Ben), (7, false, Ben), (10, false, Abby)
 //
@@ -151,7 +154,7 @@ vector<string> getPeopleAtTime(vector<pair<string, pair<int, int>>>& schedule, i
 	cout << "schedules\n";
 	for (int i = 0 ; i < sn ; i++)
 	{
-		cout << "(" << scheduleGroup[i][0] << ", " << scheduleGroup[i][1] << ") ";
+		cout << "(" << scheduleGroup[i][0] << ", " << scheduleGroup[i][1] << ", " << scheduleGroup[i][2] << ") ";
 	} 
 	cout << endl << endl;
 

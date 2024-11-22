@@ -13,15 +13,19 @@
 /*
 
 You have a stream of rpc requests coming in. Each log is of the
-form {id, timestamp, type(start/end)}. Given a timeout T, you need to figure out at the earliest possible time if a request
+form {id, timestamp, type(start/end)}. Given a timeout T, 
+you need to figure out at the earliest possible time if a request
 has timed out.
+
 Eg :
+
 id - time - type
 0 - 0 - Start
 1 - 1 - Start
 0 - 2 - End
 2 - 6 - Start
 1 - 7 - End
+
 Timeout = 3
 Ans : {1, 6} ( figured out id 1 had timed out at time 6 )
 
@@ -114,7 +118,7 @@ int main() {
 
 	for (vector<int>& x: requests) {
 
-		// cout << "adding: " << x[0] << ",  " << x[1] << ", " << x[2] << endl;
+		cout << "adding: " << x[0] << ",  " << x[1] << ", " << x[2] << endl;
 		rt.addRequest(x);
 	}
 

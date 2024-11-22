@@ -34,6 +34,10 @@ How can we solve this problem? If possible, can someone code it up?
 
 */
 
+
+#include<bits/stdc++.h>
+using namespace std;
+
 vector<string> getTokens(string s) {
 
     stringstream ss(s);
@@ -213,9 +217,6 @@ vector<string> getSelected(vector<string>& dirs, vector<string>& selected) {
 
     return {};
 }
-
-#include<bits/stdc++.h>
-using namespace std;
 
 int main() {
 

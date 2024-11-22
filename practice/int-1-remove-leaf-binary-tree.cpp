@@ -147,14 +147,14 @@ int main() {
     root -> right -> right -> left = new Node(9);
     root -> right -> right -> right = new Node(10);
 
-//     cout << "DFS\n";
-//     root = printLeavesRecursivelyDFS(root);
+    // cout << "DFS\n";
+    // root = printLeavesRecursivelyDFS(root);
     
-//     cout << "BFS\n";
-//     printLeavesBFS(root);
+    // cout << "BFS\n";
+    printLeavesBFS(root);
 
-    cout << "optimized O(n)\n";
-    printLeavesOptimized(root);
+    // cout << "optimized O(n)\n";
+    // printLeavesOptimized(root);
 
 	return 0;
 }

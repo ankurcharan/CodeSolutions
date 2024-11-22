@@ -40,12 +40,21 @@ void meanNK(vector<int>& stream, int m, int k) {
 		int x = stream[i];
         cout << "inserting: " << x << "\n";
 
+        // if (bigger.empty())
+        // 	cout << "bigger empty ";
+        // if (smaller.empty())
+        // 	cout << "smaller empty";
+        // cout << endl;
+
 		if (x >= *bigger.begin()) {
+			cout << "push to bigger";
 			bigger.insert(x);
 		} else {
+			cout << "push to smaller";
 			smaller.insert(x);
 			smallerSum += x;
 		}
+		cout << endl;
 
 		// remove oldest element to make space for new element
 		if (window.size() == m) {

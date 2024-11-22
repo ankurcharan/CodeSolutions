@@ -45,10 +45,12 @@ ALSO at
 
 https://leetcode.com/discuss/interview-question/3482596/String-replacement-library
 
-Can anyone provide a java solution for this problem? This was asked to one of my friend in onsite round and he said he has applied topological sort for this.
+Can anyone provide a java solution for this problem? This was asked to one of my friend in onsite round 
+and he said he has applied topological sort for this.
 
 
-Suppose we are creating a string replacement library. Given a map of string replacements, replace the value in the input string
+Suppose we are creating a string replacement library. Given a map of string replacements, 
+replace the value in the input string
 
 
 Given map {X=>123, Y=456}

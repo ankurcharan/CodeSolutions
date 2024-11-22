@@ -43,7 +43,7 @@ public:
 		this -> salary = s;
 		this -> childCount = 0;
 	}
-}
+};
 
 int countManagerWithLessThanAvgSalary(unordered_map<char, int>& salary, vector<pair<char, char>>& edges) {
 

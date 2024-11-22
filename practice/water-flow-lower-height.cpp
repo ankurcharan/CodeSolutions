@@ -8,22 +8,25 @@
 I got the following question in the phone screen at Google:
 
 
-Given is a 2D array that describes the height of a landscape and the location of 2 cities within this 2D array. I am now looking for the highest position to place a water tower there so that both cities can be supplied with water.
+Given is a 2D array that describes the height of a landscape and the location of 2 cities 
+within this 2D array. 
+I am now looking for the highest position to place a water tower 
+there so that both cities can be supplied with water.
 
 
 Rules:
 
-
 The pipes of the tower are not allowed to run diagonally
-The pipes must always slope downwards (i.e. be lower than the previous cell) or be at the same height, otherwise the water would run upwards
+The pipes must always slope downwards (i.e. be lower than the previous cell) 
+or be at the same height, otherwise the water would run upwards
 Inputs:
 
 
 heights = [
-[4, 9, 7, 6, 5],
-[2, 6, 5, 4, 3],
-[6, 5, 1, 2, 8],
-[3, 4, 7, 2, 5]
+	[4, 9, 7, 6, 5],
+	[2, 6, 5, 4, 3],
+	[6, 5, 1, 2, 8],
+	[3, 4, 7, 2, 5]
 ]
 
 town1 = [1, 4]

@@ -1,4 +1,5 @@
-// Consider a bank with some intial amount of money. Consider an array which represents
+// Consider a bank with some intial amount of money. 
+// Consider an array which represents
 // list of transactions which are going to come
 // through customers. + means deposit - means
 // withdrawl. Bank can choose from which
@@ -49,7 +50,7 @@ int findMaxLength(vi a, int n, int balance)
 		{
 			while(sum < 0)
 			{
-				sum += a[i];
+				sum -= a[i];
 				i++;
 			}
 			maxLen = max(maxLen, j - i + 1);
@@ -58,23 +59,25 @@ int findMaxLength(vi a, int n, int balance)
 		j++;
 	}
 
+	cout << "start: " << i << endl;
+
 	return maxLen;
 }
 
 int main()
 {
-	int n;
-	cin >> n;
+	int n = 5;
+	// cin >> n;
 
-	vi a;
-	for(int i = 0 ; i < n ; i++)
-	{
-		int x; cin >> x;
-		a.pb(x);
-	}
+	vi a = { 1, -3, 5, -2, 1 };
+	// for(int i = 0 ; i < n ; i++)
+	// {
+	// 	int x; cin >> x;
+	// 	a.pb(x);
+	// }
 
-	int balance;
-	cin >> balance;
+	int balance = 1;
+	// cin >> balance;
 
 	int res = findMaxLength(a, n, balance);
 	cout << "max len: " << res << endl;

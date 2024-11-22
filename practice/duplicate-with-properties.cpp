@@ -4,7 +4,8 @@
 
 I had my google phone screen today and completely choked.
 
-You're given a list of elements. Each element has a unique id and 3 properties. Two elements are considered as duplicates if they share any
+You're given a list of elements. Each element has a unique id and 3 properties. 
+Two elements are considered as duplicates if they share any
 of the 3 properties. Please write a function that takes the input and returns all the duplicates.
 
 Input:
@@ -62,6 +63,13 @@ vector<vector<string>> getDuplicatesDSU(unordered_map<string, vector<string>> m)
 
 	// put in own set / group
 	for (auto it: m) {
+
+		cout << it.first << " => ";
+		for (string x: it.second) {
+			cout << x << " ";
+		}
+		cout << endl;
+
 
 		// every id is in its own set
 		// first insert in dsu 
