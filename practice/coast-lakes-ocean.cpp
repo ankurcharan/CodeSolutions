@@ -105,8 +105,8 @@ vector<vector<bool>> process(vector<vector<char>>& grid) {
 				continue;
 
 			if (grid[nextX][nextY] == '.') {
-			q.push({ nextX, nextY });
-			visit[nextX][nextY] = true;
+				q.push({ nextX, nextY });
+				visit[nextX][nextY] = true;
 			}
 		}
 	}

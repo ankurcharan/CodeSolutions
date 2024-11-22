@@ -79,7 +79,7 @@ void merge(vector<int>& a, int s, int mid, int e) {
 	int idx = 0;
 	for (int i = s ; i <= e ; i++) {
 		if (a[i] & 1)		// only replace odd
-		a[i] = merged[idx++];
+			a[i] = merged[idx++];
 	}
 }
 

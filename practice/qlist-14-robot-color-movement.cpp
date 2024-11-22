@@ -237,5 +237,5 @@ int main() {
 	    cout << i << " - " << ans[i] << " " << directions[ans[i]] << endl;
 	cout << endl;
 
-	return 0;
+	return 0;
 }

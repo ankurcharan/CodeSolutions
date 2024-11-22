@@ -8,7 +8,8 @@ Implement a Tree class.
 
 // Question details
 // You're given an interface of a Dynamic Tree, your task is to write an
-// implementation according to the interface docstrings. You can change the syntax according to a language of your choice, feel free to use any helper methods or fields.
+// implementation according to the interface docstrings. 
+You can change the syntax according to a language of your choice, feel free to use any helper methods or fields.
 // Implement the methods of the following Tree class.
 
 data class TreeNode<T> {

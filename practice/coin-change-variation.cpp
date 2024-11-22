@@ -3,7 +3,9 @@
 /*
 
 Variation of coin change.
-we are given dp array that we created while finding number of ways to make the target sum. We need to find the coins array, using which this dp array is created.
+we are given dp array that we created while finding number of ways to make the target sum. 
+We need to find the coins array, using which this dp array is created.
+
 Example:
 
 target = 10
@@ -23,10 +25,10 @@ int findNumberOfWays(vector<int>& coins, int sum, vector<int>& dp) {
 
 	dp[0] = 1;	// 1 way to make zero sum
 
-	// for all sum
+	// for all coins
 	for (int c = 0 ; c < n ; c++) {
 		
-		// traverse for all coins
+		// traverse for all sum
 		for (int s = coins[c] ; s <= sum ; s++) {
 
 				// add coin to the sum sum

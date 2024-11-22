@@ -33,10 +33,13 @@ Location: Seattle, WA, Mountain View, CA
 Date: January 2024
 
 
-This was my second time interviewing at Google. I once again got the interview through a cold application and heard back a few weeks later. I scheduled the TPS for about 4 weeks after the inital email since the EOY holiday break got in the way.
+This was my second time interviewing at Google. 
+I once again got the interview through a cold application and heard back a few weeks later. 
+I scheduled the TPS for about 4 weeks after the inital email since the EOY holiday break got in the way.
 
 
-I prepped using Grind 75, Neetcode.io, Sean Prashad's Leetcode patterns list, and Leetcode's Google tagged questions list. Did around 150 problems, pretty much all easies and mediums.
+I prepped using Grind 75, Neetcode.io, Sean Prashad's Leetcode patterns list, and 
+Leetcode's Google tagged questions list. Did around 150 problems, pretty much all easies and mediums.
 
 
 Technical Phone Screen (TPS):

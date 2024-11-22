@@ -10,7 +10,8 @@ Solved using Kadane's Algorithm
 
 Follow up:
 Given an array of integers nums, find indexes [i, j] 
-such that the subarray sum nums[i] + nums[i+1] ... nums[j-1] + nums[j] is maximum and nums[i] is equal to nums[j]
+such that the subarray sum nums[i] + nums[i+1] ... nums[j-1] + nums[j] is maximum and 
+nums[i] is equal to nums[j]
 
 
 Example:
@@ -57,7 +58,7 @@ int maxSumSubarray(vector<int>& a) {
         }
 	}
     
-    cout << " => ";
+    cout << " => " << globalStart << " " << globalEnd << endl;
     for (int i = globalStart ; i <= globalEnd ; i++) {
         cout << a[i] << " ";
     }
@@ -110,10 +111,10 @@ vector<int> getMaxSubarrayIndexes(vector<int> &a) {
 
 int main() {
 
-	// vector<int> a = { 1, 2, 3, -7, 8 };
-	// int mssa = maxSumSubarray(a);
+	vector<int> a = { 1, 2, 3, -7, 8 };
+	int mssa = maxSumSubarray(a);
 
-	// cout << "a: " << mssa << "\n";
+	cout << "a: " << mssa << "\n";
     
     // vector<int> b = { -1, -2, -3, -6, -8 };
 	// int mssb = maxSumSubarray(b);

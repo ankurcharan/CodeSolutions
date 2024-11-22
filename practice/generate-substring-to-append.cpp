@@ -61,7 +61,9 @@ Intuition :
 
 Initialise an empty list to store the substrings.
 Iterate through each character in the input string.
-For each character, check if adding it to the current substring would result in a substring not already present in the list. If so, add it to the list.
+For each character, check if adding it to the current substring would 
+result in a substring not already present in the list. If so, add it to the list.
+
 Return the list of substrings.
 
 */
@@ -129,6 +131,16 @@ int main() {
     
     
     s = "GOOOOOOGLEF";
+	subs = getSubstrings(s);
+
+	cout << s << " = ";
+	for (string x: subs) {
+		cout << x << ", ";
+	}
+	cout << "\n";
+
+
+	s = "GOOOOOOGLEGOO";
 	subs = getSubstrings(s);
 
 	cout << s << " = ";

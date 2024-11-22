@@ -159,31 +159,31 @@ bool belongToSameGroupDSU(vector<vector<int>>& circles) {
 
 int main() {
 
-	// TC -1 
-	vector<vector<int>> circles = {
-		{ 0, 0, 1 },
-		{ 0, 0, 2 },
-		{ 24, 24, 1 },
-		{ 25, 25, 2 },
-		{ -36, 36, 2 }
-	};
-
-	// // TC-2
+	// // TC -1 
 	// vector<vector<int>> circles = {
 	// 	{ 0, 0, 1 },
-	// 	{ 0, 1, 2 },
-	// 	{ 0, 2, 1 },
-	// 	{ 0, 3, 2 },
-	// 	{ 0, 4, 2 }
+	// 	{ 0, 0, 2 },
+	// 	{ 24, 24, 1 },
+	// 	{ 25, 25, 2 },
+	// 	{ -36, 36, 2 }
 	// };
 
+	// TC-2
+	vector<vector<int>> circles = {
+		{ 0, 0, 1 },
+		{ 0, 1, 2 },
+		{ 0, 2, 1 },
+		{ 0, 3, 2 },
+		{ 0, 4, 2 }
+	};
 
 
-	// bool ans = belongToSameGroupDFS(circles);
-	// cout << "belong to same group: " << boolalpha << ans << endl;
 
-	bool ans = belongToSameGroupDSU(circles);
-	cout << "belong to same group: " << boolalpha << ans << endl;
+	bool ansDFS = belongToSameGroupDFS(circles);
+	cout << "belong to same group DFS: " << boolalpha << ansDFS << endl;
+
+	bool ansDSU = belongToSameGroupDSU(circles);
+	cout << "belong to same group DSU: " << boolalpha << ansDSU << endl;
 
 	return 0;
 }

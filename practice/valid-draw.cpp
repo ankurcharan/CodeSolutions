@@ -5,21 +5,32 @@
 ontext:
 There is a N player tournament. Players have rank 1 to N and each player has a unique rank. Assume that the best player always wins.
 
-The tournament is knockout format. Which means if we have 8 players [a b c d e f g h] with their ranks [1 2 3 4 5 6 7 8], the tournament will look like this:
+The tournament is knockout format. Which means if we have 8 players 
+[a b c d e f g h] with their ranks [1 2 3 4 5 6 7 8], 
+
+the tournament will look like this:
 1st round: [a b] [c d] [e f] [g h]
 2nd round: [a c] [e g]
 3rd round: [a e]
 champion : [a]
 
-We are calling [a b c d e f g h] or [1 2 3 4 5 6 7 8] a "draw" where in the 1st round: first two players meet in the first match, the next two players meet in the second match and so on.
+We are calling [a b c d e f g h] or [1 2 3 4 5 6 7 8] a 
+"draw" where in the 1st round: first two players meet in the first match, 
+the next two players meet in the second match and so on.
 
-In the 2nd round: in the first match, the winner of the first match of 1st round and the winner of the second match of 1st round will play together. And similarly in the second match,
+In the 2nd round: in the first match, 
+the winner of the first match of 1st round and the winner of the second match of 1st round will play together. 
+And similarly in the second match,
 the winner of the third match of 1st round and the winner of the fourth match of 1st round will play together.
 
-In short: given a draw, if we don't change the order of the players, players will meet in their order on the draw, and of course the winner moves to the next round. The tournament ends when there is only a single player is remaining.
+In short: given a draw, if we don't change the order of the players, 
+players will meet in their order on the draw, and of course the winner moves to the next round. 
+The tournament ends when there is only a single player is remaining.
 
 Problem:
-A draw is a valid draw when in each round, the best (based on rank) player plays with the worst player, the second best player plays with the second worst player and so on.
+A draw is a valid draw when in each round, 
+the best (based on rank) player plays with the worst player, 
+the second best player plays with the second worst player and so on.
 
 Problem 1:
 Given a draw, find out whether it is a valid draw.
@@ -55,6 +66,15 @@ line 1 : // 1, 8, 5, 4, 2, 7, 6, 3 = depth = 3, Round 1, length = 9 (1....8) + 1
 #include<bits/stdc++.h>
 using namespace std;
 
+void print(vector<int>& series) {
+    
+    int n = series.size();
+    for (int i = 0 ; i < n ; i++) {
+        cout << setw(2) << series[i] << " ";
+    }
+    cout << endl;
+}
+
 bool isValidDrawQueue(vector<int>& a) {
 
 	int n = a.size();
@@ -67,12 +87,18 @@ bool isValidDrawQueue(vector<int>& a) {
 
 	queue<int> q;
 	for (int x: a) {
+		// cout << "push: " << x << endl;
 		q.push(x);
 	}
+
+	cout << endl;
+	print(a);
+
 
 	while (q.size() > 1) {
 
 		int size = q.size(); 
+		cout << "size: " << size << endl;
 
 		for (int i = 0 ; i < size ; i += 2) {
 
@@ -80,8 +106,12 @@ bool isValidDrawQueue(vector<int>& a) {
 			int a = q.front();		q.pop();
 			int b = q.front();		q.pop();
 		
-			if (a + b != size + 1)
+			cout << "pop: " << a << ", " << b << "\n";
+
+			if (a + b != size + 1) {
+				// cout << "test: " << a << ", " << b << endl;
 				return false;
+			}
 
 			// add the winner back to queue
 			q.push(min(a, b));
@@ -90,6 +120,41 @@ bool isValidDrawQueue(vector<int>& a) {
 
 	return true;
 }
+
+vector<int> arrangeDraw(int n) {
+
+	queue<int> q;
+	q.push(1);
+
+	while (q.size() < n) {
+
+		int qs = q.size();
+		int nqs = qs * 2;
+
+        cout << qs << " -- " << nqs << endl;
+
+		while (qs--) {
+
+			int f = q.front();
+			q.pop();
+
+			q.push(f);
+			q.push(nqs + 1 - f);
+		}
+
+		cout << q.size() << " ";
+	}
+	cout << "\n";
+    
+    vector<int> ans;
+    while (!q.empty()) {
+        ans.push_back(q.front());
+        q.pop();
+    }
+
+	return ans;
+}
+
 
 bool isValidDrawRecursive(vector<int>& a) {
 
@@ -119,14 +184,78 @@ bool isValidDrawRecursive(vector<int>& a) {
 
 int main() {
 
-	vector<int> draw1 = { 1, 8, 6, 2, 7, 3, 4, 5 };
-	cout << "draw1 -> iterative: " << boolalpha << isValidDrawQueue(draw1) << ", recursive: " << isValidDrawRecursive(draw1) << "\n";
+	// vector<int> draw1 = { 1, 8, 6, 2, 7, 3, 4, 5 };
+	// cout << "draw1 -> iterative: " << boolalpha << isValidDrawQueue(draw1) << ", recursive: " << isValidDrawRecursive(draw1) << "\n";
 
-	vector<int> draw2 = { 1, 8, 4, 5, 3, 6, 2, 7 };
-	cout << "draw2 -> iterative: " << boolalpha << isValidDrawQueue(draw2) << ", recursive: " << isValidDrawRecursive(draw2) << "\n";
+	// vector<int> draw2 = { 1, 8, 4, 5, 3, 6, 2, 7 };
+	// cout << "draw2 -> iterative: " << boolalpha << isValidDrawQueue(draw2) << ", recursive: " << isValidDrawRecursive(draw2) << "\n";
 	
-	vector<int> draw3 = { 1, 8, 4, 5, 2, 7, 3, 6 };
-	cout << "draw3 -> iterative: " << boolalpha << isValidDrawQueue(draw3) << ", recursive: " << isValidDrawRecursive(draw3) << "\n";
+	// vector<int> draw3 = { 1, 8, 4, 5, 2, 7, 3, 6 };
+	// cout << "draw3 -> iterative: " << boolalpha << isValidDrawQueue(draw3) << ", recursive: " << isValidDrawRecursive(draw3) << "\n";
+
+	// cout << "\n\n\n\n";
+
+
+
+
+
+    // wrong way below 
+
+
+
+// 1 16  5 12  3 14  6 11  2  15 7  10 4  13  8 9
+// 1     5     3     6     2     7     4     8
+// 1           3           2           4
+// 1                       2
+// 1  
+
+
+// 1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16
+// 1     3     5     7     9     11    13    15
+// 1           5           9           13
+// 1                       9 
+// 1
+
+
+	// the correct way
+        
+    // 1 16 8 9 4 13 5 12 2 15 7 10 3 14 6 11
+    // 1    8   4    5    2    7    3    6
+    // 1        4         2         3
+    // 1                  2
+    // 1
+    
+
+    // 1 8 4 5 2 7 3 6
+    // 1   4   2   3
+    // 1       2
+    // 1
+
+    // wrong way below 
+
+    // 
+    // 1 8 3 6 2 7 4 5
+    // 1   3   2   4
+    // 1       2
+    // 1
+    
+    // 1 8 2 7 3 6 4 5
+    // 1   2   3   4   
+    // 1       3      
+    // 1
+
+
+	// follow up 
+	// arrange draw
+	int n = 16;
+	vector<int> series = arrangeDraw(8);
+    cout << "\n\nseries: ";
+	for (int& x: series) {
+		cout << x << " ";
+	}
+	cout << "\n";
+    
+    cout << "valid draw -> iterative: " << boolalpha << isValidDrawQueue(series) << ", recursive: " << isValidDrawRecursive(series) << "\n";
 
 
 	return 0;

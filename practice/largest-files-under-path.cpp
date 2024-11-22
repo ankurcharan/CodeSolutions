@@ -126,8 +126,9 @@ void traverseLargestFolders(Node* root, int k, priority_queue<pair<int, string>,
 		if (it.second -> type == I_DIRECTORY)
 			traverseLargestFolders(it.second, k, largestFolders);
 		else 
-		folderSize += it.second -> size;
+			folderSize += it.second -> size;
 	}
+	
 	cout << "name: " << setw(5) << root -> name << " " << root -> type << " " << root -> size << " " << folderSize << "\n";
 
 	if (root -> type == I_DIRECTORY && (largestFolders.size() < k || largestFolders.top().first < folderSize)) {
@@ -172,18 +173,18 @@ void mainQuestion(Node* root) {
 
 	// print(root, "");
 
-	// priority_queue<pair<int, string>, vector<pair<int, string>>, cmp> largestFiles;
-	// traverseLargest(root, 5, largestFiles);
+	priority_queue<pair<int, string>, vector<pair<int, string>>, cmp> largestFiles;
+	traverseLargest(root, 5, largestFiles);
 
 
 	priority_queue<pair<int, string>, vector<pair<int, string>>, cmp> largestFolders;
 	traverseLargestFolders(root, 6, largestFolders);
 
-	// cout << "\n\ntop k files:\n";
-	// while (largestFiles.empty() == false) {
-	// 	cout << largestFiles.top().first << " " << largestFiles.top().second << "\n";
-	// 	largestFiles.pop();
-	// }
+	cout << "\n\ntop k files:\n";
+	while (largestFiles.empty() == false) {
+		cout << largestFiles.top().first << " " << largestFiles.top().second << "\n";
+		largestFiles.pop();
+	}
 
 	cout << "\n\ntop k folders:\n";
 	while (largestFolders.empty() == false) {

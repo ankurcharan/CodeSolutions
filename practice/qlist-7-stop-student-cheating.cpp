@@ -14,16 +14,24 @@
 /*
 
 
-A number of students are taking exams in a room. Students sitting adjacent to each other and taking the same exam can cheat. Arrange the students so that cheating opportunities are minimized. I was free to choose input format.
-I chose the input to be a list of length n, denoting n students. The element at index i would indicate the exam student i is taking.
+A number of students are taking exams in a room. 
+Students sitting adjacent to each other and taking the same exam can cheat. 
+Arrange the students so that cheating opportunities are minimized. I was free to choose input format.
+
+I chose the input to be a list of length n, denoting n students. 
+The element at index i would indicate the exam student i is taking.
+
 For example, [1,2,3,1,2,2]
+
 Student 0 is taking exam 1
 Student 1 is taking exam 2
 Student 2 is taking exam 3
 Student 3 is taking exam 1
 Student 4 is taking exam 2
 Student 5 is taking exam 2
-Output would be a list with the students re-arranged. An acceptable output for the above case would be [1,2,3,2,1,2].
+
+Output would be a list with the students re-arranged. 
+An acceptable output for the above case would be [1,2,3,2,1,2].
 
 
 
@@ -122,7 +130,7 @@ vector<int> arrangeStudentsMaxDistance(vector<int>& a) {
         cout << "orderMaxSize: " << orderMax.size() << "\n";
         
         if (v[idx].second == 0) {
-            idx = 0;
+            // idx = 0;
             idx = (idx + 1) % n;
             continue;
         }

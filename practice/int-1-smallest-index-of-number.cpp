@@ -88,7 +88,7 @@ public:
     // O(log n)
 	void insertOrReplace(int index, int number) {
         
-        cout << "inserting: index: " << index << ", number: " << number << "\n";
+    cout << "inserting: index: " << index << ", number: " << number << "\n";
 
 		auto idxNumIterator = indexToNumber.find(index);            // O(1)
 		if (idxNumIterator != indexToNumber.end()) {
@@ -136,12 +136,12 @@ int main() {
 	nc.insertOrReplace(2, 2);
 	nc.insertOrReplace(2, 3);
 	nc.insertOrReplace(4, 5);
-    nc.insertOrReplace(4, 2);
-    
-    nc.deleteNumber(5);
-    
-    cout << "smallest 2: " << nc.findSmallestIndex(2) << "\n";
-    cout << "smallest 3: " << nc.findSmallestIndex(3) << "\n";
+  nc.insertOrReplace(4, 2);
+  
+  nc.deleteNumber(5);
+  
+  cout << "smallest 2: " << nc.findSmallestIndex(2) << "\n";
+  cout << "smallest 3: " << nc.findSmallestIndex(3) << "\n";
 
 	return 0;
 }
